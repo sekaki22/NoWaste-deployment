@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "mother.html" %}
+  {% block body_block %}
+
+
+      {% if registered %}
+
+      <h1>Thank you and welcome to the movement!</h1>
+      <a href="http://reactiongifs.com/?p=20476"><img src="https://www.reactiongifs.com/r/wow.gif" alt="Epic fail"></a>
+
+      {% else %}
+
+      <h1>Please fill in the form to complete registration </h1>
+
+      <form  method="POST" enctype="multipart/form-data">
+        {{user_form.as_p}}
+        {{profile_form.as_p}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit!">
+      </form>
+
+      {% endif %}
+
+      {% endblock %}
